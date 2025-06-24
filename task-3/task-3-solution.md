@@ -5,9 +5,13 @@
 Важный сервис:
 \```
 #! /usr/bin/bash
+
 while true; do
+
   echo "`date` I am still alive"
+
   sleep 1
+
 done
 \```
 
