@@ -4,7 +4,7 @@
 
 Важный сервис:
 
-\
+```bash
 #! /usr/bin/bash
 while true; do
   echo "`date` I am still alive"
