@@ -10,6 +10,7 @@ while true; do
   echo "`date` I am still alive"
   sleep 1
 done
+```
 
 Задача - отвязать процесс от консоли и перенаправить вывод в файл чтобы 1 и 2 дескриптор писали в файлики stdout.txt и stderr.txt
 
