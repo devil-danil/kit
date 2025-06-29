@@ -72,7 +72,6 @@ ya-kit/zshrc
 
 5. Создаю yml-файл топологии сети part1-topology.clab.yml
 
-<pre>
 ```yaml
 name: part1-topology
 
@@ -133,6 +132,6 @@ topology:
     - endpoints: [ "pc4:eth1", "br172:pc4" ]
     - endpoints: [ "r1:eth2",  "br172:r1_172" ]
 ```
-</pre>
+
 
 
