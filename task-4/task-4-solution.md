@@ -50,8 +50,11 @@ https://disk.yandex.ru/d/iMDH0kQPvMOGtA. Архив docker-ya-kit.tar.gz.
 `tar -tzf ya-kit.tar.gz`
 
 >ya-kit/
+
 >ya-kit/motd
+
 >ya-kit/Dockerfile
+
 >ya-kit/zshrc
 
 `tar -xzf ya-kit.tar.gz`
@@ -60,9 +63,7 @@ https://disk.yandex.ru/d/iMDH0kQPvMOGtA. Архив docker-ya-kit.tar.gz.
 
 `docker build -t clab .`
 
-4. Создаю yml-файл топологии сети
-
-Содержимое part1-topology.clab.yml:
+4. Создаю yml-файл топологии сети part1-topology.clab.yml
 
 <pre>
 ```yaml
