@@ -133,5 +133,12 @@ topology:
     - endpoints: [ "r1:eth2",  "br172:r1_172" ]
 ```
 
+6. Развёртываем нашу сетевую лабораторию в соответсвии с нашим yml-файлом
+
+`sudo clab deploy  -t part1-topology.clab.yml`
+
+![screenshot_2](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_1.png)
+
+![screenshot_3](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_1.png)
 
 
