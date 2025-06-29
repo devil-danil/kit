@@ -43,27 +43,26 @@ https://disk.yandex.ru/d/iMDH0kQPvMOGtA. Архив docker-ya-kit.tar.gz.
 
 `curl -sL https://containerlab.dev/setup | sudo -E bash -s "all"`
 
-2. Распаковываю архив ya-kit.tar.gz
-
-Смотрю содержимое архива
+2. Смотрю содержимое архива
 
 `tar -tzf ya-kit.tar.gz`
 
->ya-kit/
+```
+ya-kit/
+ya-kit/motd
+ya-kit/Dockerfile
+ya-kit/zshrc
+```
 
->ya-kit/motd
-
->ya-kit/Dockerfile
-
->ya-kit/zshrc
+3. Распаковываю архив ya-kit.tar.gz
 
 `tar -xzf ya-kit.tar.gz`
 
-3. Собираю docker образ
+4. Собираю docker образ
 
 `docker build -t clab .`
 
-4. Создаю yml-файл топологии сети part1-topology.clab.yml
+5. Создаю yml-файл топологии сети part1-topology.clab.yml
 
 <pre>
 ```yaml
