@@ -133,7 +133,7 @@ topology:
     - endpoints: [ "r1:eth2",  "br172:r1_172" ]
 ```
 
-6. Развёртываем нашу сетевую лабораторию в соответсвии с нашим yml-файлом
+6. Развёртываем нашу сетевую лабораторию в соответсвии с yml-файлом
 
 `sudo clab deploy  -t part1-topology.clab.yml`
 
@@ -153,7 +153,7 @@ topology:
 
 ![screenshot_5](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_5.png)
 
-## Часть 2 - - траблшутинг
+## Часть 2 - траблшутинг
 
 Нужно починить сеть. В ней есть несколько багов, которые мешают работать.
 
@@ -164,6 +164,7 @@ topology:
 ### Задание
 
 По ссылке https://disk.yandex.ru/d/iMDH0kQPvMOGtA скачать архив с лабой.
+
 Файл docker-ya-kit.tar.gz.
 
 Запустить лабу в Containerlab. Для запуска/остановки через скрипты start , stop
@@ -212,4 +213,32 @@ SSH(SFTP) скачать блоб test. Где X - номер хоста.
 конфигурации.
 
 ## Решение части 2
+
+1. Распаковываем архив homework2.tar.gz
+
+`tar -xzf homework2.tar.gz`
+
+Содержимое архива:
+
+![screenshot_7](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_7.png)
+
+2. Устанавливаем tmux
+
+`sudo apt install -y tmux`
+
+![screenshot_8](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_8.png)
+
+2. Переходим в директорию homework2 и откроем новый сеанс tmux
+
+`tmux new -s lab`
+
+3. Запустим скрипт start.sh, чтобы развернуть нашу сеть через clab, и через tmux разбить наш теринал на 4 окна
+
+`./start.sh`
+
+![screenshot_9](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_9.png)
+
+Далее вводим `exit`, чтобы попасть в одну из панелей.
+
+
 
