@@ -10,7 +10,7 @@
 
 > Знакомство с Containerlab и базовая настройка сети.
 
-![screenshot_1]()
+![screenshot_1](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_1.png)
 
 ### Задание
 
