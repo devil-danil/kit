@@ -141,4 +141,15 @@ topology:
 
 ![screenshot_3](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_3.png)
 
+7. Проверяю, что контейнеры с нашими ПК поднялись
+
+`docker ps`
+
+![screenshot_4](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_4.png)
+
+8. Проверяю IP связность между компьютерами
+
+> Захожу в bash-оболочку контейнера clab-part1-topology-pc1 и делаю ping к другим ПК
+
+![screenshot_5](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_5.png)
 
