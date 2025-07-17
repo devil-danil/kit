@@ -1,0 +1,185 @@
+{
+  "main": {
+    "id": "1e11f9fbdf513fbb",
+    "type": "split",
+    "children": [
+      {
+        "id": "c4834846695e1f5f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a7197edb1d83c52b",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "068886e5224b7ac2",
+    "type": "split",
+    "children": [
+      {
+        "id": "0d66ecf9e8cbf252",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "91c85aa486cc3656",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "1e80d585ae7e619f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "2f62ad8407ea75f3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 218.5
+  },
+  "right": {
+    "id": "0c2914b3dfc24829",
+    "type": "split",
+    "children": [
+      {
+        "id": "d568b3358009bb30",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9c62069c7d2cc0be",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "task-4-solution.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for task-4-solution"
+            }
+          },
+          {
+            "id": "f71c06fb5b9838a2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "task-4-solution.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from task-4-solution"
+            }
+          },
+          {
+            "id": "b6bd5af1775c5b32",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "37ca1ef2acb09eb2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "task-4-solution.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of task-4-solution"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "1e80d585ae7e619f",
+  "lastOpenFiles": [
+    "Untitled 1.canvas",
+    "Untitled.canvas",
+    "task-4-solution.md",
+    "Лекция 12.md",
+    "screenshots/Снимок экрана 2025-07-06 в 16.15.37.png",
+    "screenshots/screenshot_13.png",
+    "screenshots/screenshot_12.png",
+    "screenshots/screenshot_11.png",
+    "screenshots/screenshot_10.png",
+    "screenshots/Снимок экрана 2025-07-06 в 15.42.12.png",
+    "screenshots/Снимок экрана 2025-07-06 в 15.41.44.png",
+    "screenshots/Снимок экрана 2025-07-06 в 15.41.19.png",
+    "screenshots/Снимок экрана 2025-07-06 в 15.40.51.png",
+    "screenshots/screenshot_17.png"
+  ]
+}

@@ -153,6 +153,8 @@ topology:
 
 ![screenshot_5](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_5.png)
 
+**Вывод:** пакеты успешно доставляются - связь между компютерами работает корректно.
+
 ## Часть 2 - траблшутинг
 
 Нужно починить сеть. В ней есть несколько багов, которые мешают работать.
@@ -240,5 +242,172 @@ SSH(SFTP) скачать блоб test. Где X - номер хоста.
 
 Далее вводим `exit`, чтобы попасть в одну из панелей.
 
+4. Смотрим сетевую информацию о каждом компьютере в контейнерах
 
+### PC1
+
+![screenshot_10](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_10.png)
+
+![screenshot_11](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_11.png)
+
+root@debian:/home/debian/dz4/ya-kit-net1-2025/homework2# cat pc1/network.sh 
+#!/usr/bin/env sh
+
+ip link add lo1 type dummy 
+ip link add lo2 type dummy
+
+ip link set eth1 up
+ip link set eth2 up
+ip link set lo1 up
+
+ip address flush dev eth1
+ip address flush dev eth2
+ip address flush dev lo1
+
+ip address add 192.168.1.1/32 dev lo1
+ip address add 192.168.13.1/24 dev eth1
+ip address add 172.17.10.1/24 dev eth2
+
+ip route add default via 192.168.13.2
+
+### PC2
+
+![screenshot_12](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_12.png)
+
+![screenshot_13](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_13.png)
+
+root@debian:/home/debian/dz4/ya-kit-net1-2025/homework2# cat pc2/network.sh
+#!/usr/bin/env sh
+
+ip link add lo1 type dummy 
+
+ip link set eth1 up
+ip link set eth2 up
+ip link set lo1 up
+
+ip address flush dev eth1
+ip address flush dev eth2
+ip address flush dev lo1
+
+ip address add 10.12.12.8/32 dev lo1
+ip address add 192.168.13.2/24 dev eth1 
+ip address add 10.200.13.1/30 dev eth2
+
+ip route add default via 10.200.13.2
+
+### PC3
+
+![screenshot_14](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_14.png)
+
+![screenshot_15](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_15.png)
+
+root@debian:/home/debian/dz4/ya-kit-net1-2025/homework2# cat pc3/network.sh 
+#!/usr/bin/env sh
+
+ip link add lo1 type dummy 
+
+ip link set eth1 up
+ip link set eth1 mtu 200
+ip link set eth2 up
+ip link set eth2 arp off
+ip link set lo1 up
+
+ip address flush dev eth1
+ip address flush dev eth2
+ip address flush dev lo1
+
+ip address add 100.100.2.12/32 dev lo1
+ip address add 172.17.18.0/31 dev eth1
+ip address add 172.17.10.2/24 dev eth2
+
+ip route add default via 172.17.10.1
+
+### PC4
+
+![screenshot_16](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_16.png)
+
+![screenshot_17](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_17.png)
+
+root@debian:/home/debian/dz4/ya-kit-net1-2025/homework2# cat pc4/network.sh 
+#!/usr/bin/env sh
+
+ip link add lo1 type dummy 
+
+ip link set eth1 up
+ip link set eth1 mtu 400
+ip link set eth2 up
+ip link set lo1 up
+
+ip address flush dev eth1
+ip address flush dev eth2
+ip address flush dev lo1
+
+ip address add 192.168.13.10/24 dev lo1
+ip address add 172.17.18.1/31 dev eth1
+ip address add 10.200.13.2/30 dev eth2
+
+ip route add default via 172.17.18.0
+ip route add 100.100.2.12/32 via 10.200.13.1
+
+---
+
+Проверяем, проходит ли пинг между ПК
+
+PC1 --> PC2
+
+![screenshot_18](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_18.png)
+
+Проверяю размер MTU на интрефесах pc1 и pc2 командой
+
+`ip link show dev eth1`
+
+> 5: eth1@if6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500
+> 6: eth1@if5: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500
+
+Стандарт для Ethernet — 1500 байт. 9000 байт и более - это типовой «джамбо» в дата-центрах. Для нашей сети такой размер избыточный, так что меняем на 1500 байт на pc1 и pc2.
+
+`ip link set dev eth1 mtu 1500`
+
+
+PC2 --> PC4
+
+![screenshot_19](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_19.png)
+
+PC4 --> PC3
+
+![screenshot_20](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_20.png)
+
+PC3 --> PC1
+
+![screenshot_21](https://github.com/devil-danil/kit/blob/main/task-4/screenshots/screenshot_21.png)
+
+Если мы попытаемся отправить пакет с PC4 на PC3, то столкнёмся с тем, что из-за разных размеров MTU - 200 (pc3) и 400 (pc4), кадры будут отбрасываться и пинг не пройдёт.
+
+Исправим это и в соответсвии с нашей топологией из задания назначим интерфейсам eth1 в pc4 и pc3 корректные ip-адреса.
+
+Исправления на PC3
+---
+ip link set eth1 up mtu 1500
+ip addr flush    dev    eth1\n
+
+ip link set eth2 up arp on
+
+ip addr add 100.100.2.12/30 dev eth1
+
+ip addr del 172.17.18.0/31 dev eth1
+
+Исправления на PC4
+---
+ip link set      eth1   up mtu 1500 arp on
+ip addr flush    dev    eth1\n
+
+ip addr add 100.100.2.13/30 dev eth1\n
+
+ip route del 100.100.2.12/32 
+
+ip addr add 100.100.2.13/30 dev eth1\n
+
+Пробуем пинговать PC3
+
+ping -c4 pc3
 

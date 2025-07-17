@@ -146,8 +146,13 @@ sudo kill -INT $PID
 
 ```bash
 sudo tcpdump -i enp0s1 -s0 -w vm0_reno-vm1_bbr_0.pcap &
+
+sudo tcpdump -i enp0s1 -s0 -w vm0_reno-vm1_bbr_50_2.pcap &
 PID=$!
 curl -o /dev/null http://192.168.64.2/file_10m
+
+curl --limit-rate 2M -o /dev/null http://192.168.64.2/file_10m
+
 sudo kill -INT $PID
 ```
 
@@ -161,3 +166,12 @@ sudo tc qdisc replace dev enp0s1 root netem delay 10ms loss 2%
 sudo tc qdisc replace dev enp0s1 root netem delay 50ms loss 2%
 sudo tc qdisc replace dev enp0s1 root netem delay 100ms loss 2%
 sudo tc qdisc replace dev enp0s1 root netem delay 10ms loss 6%
+
+На хосте:
+ssh-keygen -t ed25519 -f ~/.ssh/vm1_ed25519ssh-copy-id -i ~/.ssh/vm1_ed25519.pub debian@192.168.64.3
+
+В скрипте добавить:
+-i ~/.ssh/vm1_ed25519 
+
+и оставить 
+BatchMode=yes
