@@ -60,13 +60,13 @@ one_to_one_nat:
 
 `systemctl status dashboard.service`
 
-![screenshot_1](https://github.com/devil-danil/kit/tree/main/task-9/screenshots/screen_1.png)
+![screenshot_1](https://github.com/devil-danil/kit/blob/main/task-9/screenshots/screen_1.png)
 
 > Служба активна
 
 4. Пробуем проверить зайти на страничку с дашбордом. Вводим наш IP и порт 84.201.174.80:80
 
-![screenshot_2](https://github.com/devil-danil/kit/tree/main/task-9/screenshots/screen_2.png)
+![screenshot_2](https://github.com/devil-danil/kit/blob/main/task-9//screenshots/screen_2.png)
 
 > Видим, что инофрмация недоступна, данные не могут загрузиться, также утекает память при работе дашборда
 
