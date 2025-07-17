@@ -60,13 +60,13 @@ one_to_one_nat:
 
 `systemctl status dashboard.service`
 
-![screenshot_1](https://github.com/devil-danil/kit/blob/main/task-9/screenshots/screen_1.jpg)
+![screenshot_1](https://github.com/devil-danil/kit/tree/main/task-9/screenshots/screen_1.png)
 
 > Служба активна
 
 4. Пробуем проверить зайти на страничку с дашбордом. Вводим наш IP и порт 84.201.174.80:80
 
-![screenshot_2](https://github.com/devil-danil/kit/blob/main/task-9/screenshots/screen_2.jpg)
+![screenshot_2](https://github.com/devil-danil/kit/tree/main/task-9/screenshots/screen_2.png)
 
 > Видим, что инофрмация недоступна, данные не могут загрузиться, также утекает память при работе дашборда
 
@@ -74,7 +74,7 @@ one_to_one_nat:
 
 `sudo journalctl -u dashboard.service -n 50 --no-pager`
 
-![screenshot_3](https://github.com/devil-danil/kit/blob/main/task-9/screenshots/screen_3.jpg)
+![screenshot_3](https://github.com/devil-danil/kit/blob/main/task-9/screenshots/screen_3.png)
 
 5. Вынесу SQL-скрипт в отдельный файл, чтобы агрегировать остатки по каждой категории товаров
 
@@ -237,7 +237,7 @@ st.caption(
 
 8. В результате исправленного скрипта и SQL-запроса, вынесенного в отдельный файл, рисуется следующий дашборд
 
-![screenshot_4](https://github.com/devil-danil/kit/blob/main/task-9/screenshots/screen_4.jpg)
+![screenshot_4](https://github.com/devil-danil/kit/blob/main/task-9/screenshots/screen_4.png)
 
 > Бабочки тоже не плохо! Увы не хватило времени довести до ума
 
